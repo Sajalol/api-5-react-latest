@@ -4,6 +4,8 @@ import Container from "react-bootstrap/Container";
 import { Route, Switch } from "react-router-dom";
 import './api/axiosDefault'
 import SignInForm from "./pages/auth/SignInForm";
+import ToDoList from "./pages/auth/ToDoList";
+import CreateTask from "./pages/auth/CreateTask";
 
 function App() {
   return (
@@ -13,7 +15,8 @@ function App() {
         <Switch>
           <Route exact path="/" render={() => <h1>Home page</h1>} />
           <Route exact path="/signin" render={() => <SignInForm />} />
-          <Route render={() => <p>Page not found!</p>} />
+          <Route exact path="/todo" render={() => <ToDoList /> } />
+          <Route exact path="/createtask" render={() => <CreateTask /> } />
         </Switch>
       </Container>
     </div>

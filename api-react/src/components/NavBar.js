@@ -24,6 +24,20 @@ const NavBar = () => {
 
   const loggedInIcons = (
     <>
+        <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/todo"
+      >
+        <i className="fas fa-stream"></i>To do list
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/createtask"
+      >
+        <i className="fa-solid fa-circle-plus"></i>Create task
+      </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>

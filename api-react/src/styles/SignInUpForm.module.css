@@ -17,9 +17,6 @@
   text-decoration: none;
   background-color: #343a40;
   border: 1px solid #fff;
-  &:focus {
-    color: #007bff;
-  }
 }
 
 .SignInButton {
@@ -27,7 +24,4 @@
   font-size: 18px;
   background-color: #404a55;
   border: 1px solid #fff;
-  &:hover {
-    background-color: #0069d9;
   }
-}
