@@ -28,20 +28,23 @@ const NavBar = () => {
           to="/">
             <i class="fa-solid fa-house"></i> Home
             </NavLink>
-          <NavLink 
-          exact
-          className={styles.NavLink} 
-          activeClassName={styles.Active} 
-          to="/signin">
-            <i class="fa-solid fa-right-to-bracket"></i>Sign In
+          {!currentUser ? (
+            <NavLink 
+              exact
+              className={styles.NavLink} 
+              activeClassName={styles.Active} 
+              to="/signin">
+                <i class="fa-solid fa-right-to-bracket"></i>Sign In
             </NavLink>
-          <NavLink 
-          exact
-          className={styles.NavLink} 
-          activeClassName={styles.Active} 
-          to="/signout">
-            <i class="fa-solid fa-right-from-bracket"></i>Sign Out
+          ) : (
+            <NavLink 
+              exact
+              className={styles.NavLink} 
+              activeClassName={styles.Active} 
+              to="/signout">
+                <i class="fa-solid fa-right-from-bracket"></i>Sign Out
             </NavLink>
+          )}
         </Nav>
       </Navbar.Collapse>
     </Container>
