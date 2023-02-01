@@ -1,4 +1,7 @@
 import React, { useState, useContext } from 'react';
+import styles from '../../styles/CreateTask.module.css';
+import btnStyles from "../../styles/Button.module.css";
+
 import { Form, Button, Select, Input, DatePicker, Checkbox } from 'antd';
 import moment from 'moment';
 import axios from 'axios';
@@ -56,6 +59,7 @@ const CreateTask = () => {
   };
 
   return (
+    <div className={styles.formContainer}>
     <Form onSubmit={onFormSubmit}>
       <Form.Item label="Title">
         <Input
@@ -128,11 +132,12 @@ const CreateTask = () => {
             <Checkbox checked={formData.completed} onChange={onCompletedChange} />
             </Form.Item>
             <Form.Item>
-            <Button type="primary" htmlType="submit">
+            <Button type="submit" className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}>
             Submit
             </Button>
             </Form.Item>
             </Form>
+            </div>
             );
             };
 
