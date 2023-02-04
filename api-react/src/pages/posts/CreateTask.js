@@ -65,7 +65,7 @@ const CreateTask = () => {
         <Input
           name="title"
           value={formData.title}
-          onChange={onFormChange}
+          onChange={(event) => setFormData({ ...formData, [event.target.name]: event.target.value })}
           required
         />
       </Form.Item>
@@ -73,7 +73,7 @@ const CreateTask = () => {
         <Input.TextArea
           name="content"
           value={formData.content}
-          onChange={onFormChange}
+          onChange={(event) => setFormData({ ...formData, [event.target.name]: event.target.value })}
         />
       </Form.Item>
       <Form.Item label="Due Date">
@@ -87,22 +87,21 @@ const CreateTask = () => {
         <Input
           name="created_by"
           value={formData.created_by}
-          onChange={onFormChange}
-          required
+          disabled
         />
       </Form.Item>
       <Form.Item label="Assigned To">
         <Input
           name="assigned_to"
           value={formData.assigned_to}
-          onChange={onFormChange}
+          onChange={(event) => setFormData({ ...formData, [event.target.name]: event.target.value })}
         />
       </Form.Item>
       <Form.Item label="Attachements">
         <Input
           name="attachements"
           value={formData.attachements}
-          onChange={onFormChange}
+          onChange={(event) => setFormData({ ...formData, [event.target.name]: event.target.value })}
         />
       </Form.Item>
       <Form.Item label="Category">
@@ -110,28 +109,35 @@ const CreateTask = () => {
           name="category"
           value={formData.category}
           onChange={onCategoryChange}
-          >
-            <Option value="task">Task</Option>
-            <Option value="bug">Bug</Option>
-            <Option value="feature">Feature</Option>
+        >
+            <Option value="0">Backend</Option>
+            <Option value="1">Frontend</Option>
+            <Option value="2">Database</Option>
+            <Option value="3">Python</Option>
+            <Option value="4">Javascript</Option>
             </Select>
             </Form.Item>
             <Form.Item label="Priority">
-            <Select
-                name="priority"
-                value={formData.priority}
-                onChange={onPriorityChange}
-                >
-            <Option value={1}>Critical</Option>
-            <Option value={2}>High</Option>
-            <Option value={3}>Medium</Option>
-            <Option value={4}>Low</Option>
-            </Select>
-            </Form.Item>
-            <Form.Item label="Completed">
-            <Checkbox checked={formData.completed} onChange={onCompletedChange} />
-            </Form.Item>
-            <Form.Item>
+        <Select
+          name="priority"
+          value={formData.priority}
+          onChange={onPriorityChange}
+        >
+          <Option value={1}>1</Option>
+          <Option value={2}>2</Option>
+          <Option value={3}>3</Option>
+          <Option value={4}>4</Option>
+          <Option value={5}>5</Option>
+        </Select>
+      </Form.Item>
+      <Form.Item label="Completed">
+        <Checkbox
+          name="completed"
+          checked={formData.completed}
+          onChange={onCompletedChange}
+        />
+      </Form.Item>
+      <Form.Item>
             <Button type="submit" className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}>
             Submit
             </Button>
