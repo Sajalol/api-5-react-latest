@@ -31,7 +31,7 @@ const CreateTask = () => {
   const onDueDateChange = (date, dateString) => {
     setFormData({
       ...formData,
-      due_date: moment(date).format("dddd, MMMM Do YYYY"),
+      due_date: moment(date).format("dd,MM,YYYY"),
     });
   };
 
