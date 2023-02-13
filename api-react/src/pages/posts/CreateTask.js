@@ -15,7 +15,7 @@ const CreateTask = () => {
     title: '',
     content: '',
     due_date: moment(),
-    created_by: currentUser.id,
+    created_by: currentUser?.id,
     assigned_to: '',
     attachements: '',
     category: '',
@@ -48,6 +48,7 @@ const CreateTask = () => {
   };
 // TODO: Add logic to send formData to Django API endpoint
   const onFormSubmit = (event) => {
+    console.log('form submitted')
     event.preventDefault();
     axios.post('https://rest-api-project5.herokuapp.com/todo/task-create/', formData)
         .then(res => {
@@ -60,7 +61,7 @@ const CreateTask = () => {
 
   return (
     <div className={styles.formContainer}>
-    <Form onSubmit={onFormSubmit}>
+    <form onSubmit={onFormSubmit}>
       <Form.Item label="Title">
         <Input
           name="title"
@@ -138,13 +139,14 @@ const CreateTask = () => {
         />
       </Form.Item>
       <Form.Item>
-            <Button type="submit" className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}>
+            {/* <Button type="submit" className={`${btnStyles.Button} ${btnStyles.Wide} ${btnStyles.Bright}`}>
             Submit
-            </Button>
-            </Form.Item>
-            </Form>
-            </div>
-            );
-            };
+            </Button> */}
+            <input type="submit" value="Submit" />
+      </Form.Item>
+    </form>
+   </div>
+  );
+}
 
-            export default CreateTask;
+export default CreateTask;
